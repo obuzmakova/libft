@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_srtnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 14:43:28 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/23 21:05:16 by mleticia         ###   ########.fr       */
+/*   Created: 2019/04/23 17:48:44 by mleticia          #+#    #+#             */
+/*   Updated: 2019/04/23 19:48:13 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strnew(size_t size)
 {
-	char		*d;
-	const char	*s;
-	size_t		n;
-	size_t		dlen;
+	char *p1;
 
-	d = dst;
-	s = src;
-	n = size;
-	while (n-- != 0 && *d != '\0')
-		d++;
-	dlen = d - dst;
-	n = size - dlen;
-	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s != '\0')
-	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
-		s++;
-	}
-	*d = '\0';
-	return (dlen + (s - src));
+	if ((size + 1) == 0)
+		return (0);
+	p1 = (char*)ft_memalloc(size + 1);
+	return (p1);
 }

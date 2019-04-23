@@ -6,7 +6,7 @@
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 19:11:13 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/23 16:24:16 by mleticia         ###   ########.fr       */
+/*   Updated: 2019/04/23 21:26:39 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include <fcntl.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -52,7 +51,13 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_strdel(char **as);
-void 	*ft_memalloc(size_t size);
+void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
+void	ft_strclr(char *s);
+char	*ft_strnew(size_t size);
+int		ft_strequ(char const *s1, char const *s2);
+int		ft_strnequ(char const *s1, char const *s2, size_t n);
+void	ft_putstr(char const *s);
+void	ft_putstr_fd(char const *s, int fd);
 
 #endif

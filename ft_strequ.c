@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 14:43:28 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/23 21:05:16 by mleticia         ###   ########.fr       */
+/*   Created: 2019/04/23 18:25:06 by mleticia          #+#    #+#             */
+/*   Updated: 2019/04/23 18:34:39 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	char		*d;
-	const char	*s;
-	size_t		n;
-	size_t		dlen;
-
-	d = dst;
-	s = src;
-	n = size;
-	while (n-- != 0 && *d != '\0')
-		d++;
-	dlen = d - dst;
-	n = size - dlen;
-	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s != '\0')
+	if (s1 && s2)
 	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
-		s++;
+		if (ft_strcmp(s1, s2) != 0)
+			return (0);
+		else
+			return (1);
 	}
-	*d = '\0';
-	return (dlen + (s - src));
+	return (0);
 }

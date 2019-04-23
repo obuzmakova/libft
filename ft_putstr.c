@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 14:43:28 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/23 21:05:16 by mleticia         ###   ########.fr       */
+/*   Created: 2019/04/23 20:57:00 by mleticia          #+#    #+#             */
+/*   Updated: 2019/04/23 21:02:20 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_putstr(char const *s)
 {
-	char		*d;
-	const char	*s;
-	size_t		n;
-	size_t		dlen;
+	int i;
 
-	d = dst;
-	s = src;
-	n = size;
-	while (n-- != 0 && *d != '\0')
-		d++;
-	dlen = d - dst;
-	n = size - dlen;
-	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s != '\0')
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i] != '\0')
 	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
-		s++;
+		ft_putchar(s[i]);
+		i++;
 	}
-	*d = '\0';
-	return (dlen + (s - src));
 }
