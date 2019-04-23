@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 17:23:19 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/19 19:31:08 by mleticia         ###   ########.fr       */
+/*   Created: 2019/04/16 15:59:00 by mleticia          #+#    #+#             */
+/*   Updated: 2019/04/22 19:06:48 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+size_t	ft_strlen(const char *s)
 {
-	char *p1;
+	size_t len;
 
-	p1 = s1;
-	while (*s1)
-		s1++;
-	while (*s2)
-	{
-		*s1++ = *s2++;
-	}
-	return (p1);
+	len = 0;
+	while (*s++)
+		++len;
+	return (len);
 }

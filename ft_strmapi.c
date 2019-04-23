@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 15:23:53 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/18 15:27:27 by mleticia         ###   ########.fr       */
+/*   Created: 2019/04/22 16:22:57 by mleticia          #+#    #+#             */
+/*   Updated: 2019/04/22 16:27:21 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *p1;
+	char	*p1;
+	size_t	i;
 
-	p1 = s1;
-	while (*s1)
-		s1++;
-	while (n > 0)
+	i = 0;
+	if (!s || !f)
+		return (NULL);
+	if (!(p1 = (char*)malloc(ft_strlen(s) + 1)))
+		return (NULL);
+	ft_memcpy(p1, s, ft_strlen(s));
+	while (s[i])
 	{
-		*s1++ = *s2++;
-		n--;
+		p1[i] = f(i, s[i]);
+		i++;
 	}
-	*s1 = '\0';
+	p1[i] = '\0';
 	return (p1);
 }
