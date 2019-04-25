@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 17:23:19 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/24 16:09:24 by mleticia         ###   ########.fr       */
+/*   Created: 2019/04/24 21:18:51 by mleticia          #+#    #+#             */
+/*   Updated: 2019/04/24 22:22:54 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char		*ft_strtrim(char const *s)
 {
-	char *p1;
+	size_t	i;
+	int		k;
+	char	*p1;
 
-	p1 = s1;
-	while (*p1)
-		p1++;
-	while (*s2)
+	if (!s)
+		return (0);
+	i = ft_strlen(s);
+	while (*s == ' ' || *s == '\t' || *s == '\n')
 	{
-		*p1++ = *s2++;
+		s++;
+		i--;
 	}
-	*p1 = '\0';
-	return (s1);
+	k = ft_strlen(s);
+	if (k == 0)
+		return ((char*)s);
+	while (s[k - 1] == ' ' || s[k - 1] == '\t' || s[k - 1] == '\n')
+	{
+		k--;
+		i--;
+	}
+	if (!(p1 = (char*)malloc(sizeof(char) * (i + 1))))
+		return (NULL);
+	p1 = ft_strncpy(p1, s, i);
+	p1[i] = '\0';
+	return (p1);
 }

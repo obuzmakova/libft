@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 17:23:19 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/24 16:09:24 by mleticia         ###   ########.fr       */
+/*   Created: 2019/04/24 19:59:16 by mleticia          #+#    #+#             */
+/*   Updated: 2019/04/24 20:55:26 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_putnbr(int n)
 {
-	char *p1;
+	unsigned int i;
 
-	p1 = s1;
-	while (*p1)
-		p1++;
-	while (*s2)
+	i = (unsigned int)n;
+	if (n < 0)
 	{
-		*p1++ = *s2++;
+		ft_putchar('-');
+		i = (unsigned int)(-n);
 	}
-	*p1 = '\0';
-	return (s1);
+	if (i > 9)
+		ft_putnbr(i / 10);
+	ft_putchar(i % 10 + '0');
 }

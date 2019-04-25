@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 17:23:19 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/24 16:09:24 by mleticia         ###   ########.fr       */
+/*   Created: 2019/04/24 19:56:22 by mleticia          #+#    #+#             */
+/*   Updated: 2019/04/24 19:57:49 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_putendl(char const *s)
 {
-	char *p1;
-
-	p1 = s1;
-	while (*p1)
-		p1++;
-	while (*s2)
-	{
-		*p1++ = *s2++;
-	}
-	*p1 = '\0';
-	return (s1);
+	ft_putstr(s);
+	ft_putchar('\n');
 }
