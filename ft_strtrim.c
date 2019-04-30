@@ -6,20 +6,20 @@
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 21:18:51 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/24 22:22:54 by mleticia         ###   ########.fr       */
+/*   Updated: 2019/04/27 21:35:07 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
-	size_t	i;
-	int		k;
-	char	*p1;
+	size_t		i;
+	size_t		k;
+	char		*p1;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	i = ft_strlen(s);
 	while (*s == ' ' || *s == '\t' || *s == '\n')
 	{
@@ -28,7 +28,7 @@ char		*ft_strtrim(char const *s)
 	}
 	k = ft_strlen(s);
 	if (k == 0)
-		return ((char*)s);
+		return (ft_strnew(1));
 	while (s[k - 1] == ' ' || s[k - 1] == '\t' || s[k - 1] == '\n')
 	{
 		k--;

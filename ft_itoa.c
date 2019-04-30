@@ -6,7 +6,7 @@
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 12:06:28 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/25 19:45:22 by mleticia         ###   ########.fr       */
+/*   Updated: 2019/04/26 15:48:43 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ static int			ft_size(unsigned int a, int c)
 		c++;
 	}
 	return (c);
+}
+
+static char			*ft_frstr(char *s1, unsigned int d, unsigned int g)
+{
+	while (g)
+	{
+		s1[g - 1] = d % 10 + '0';
+		g--;
+		d = d / 10;
+	}
+	return (s1);
 }
 
 char				*ft_itoa(int n)
@@ -44,12 +55,7 @@ char				*ft_itoa(int n)
 		return (NULL);
 	p1[i] = '\0';
 	num = n;
-	while (i)
-	{
-		p1[i - 1] = num % 10 + '0';
-		i--;
-		num = num / 10;
-	}
+	p1 = ft_frstr(p1, num, i);
 	if (sign == -1)
 		p1[0] = '-';
 	return (p1);

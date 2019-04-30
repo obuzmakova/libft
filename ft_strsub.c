@@ -6,7 +6,7 @@
 /*   By: mleticia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 15:07:23 by mleticia          #+#    #+#             */
-/*   Updated: 2019/04/24 19:32:00 by mleticia         ###   ########.fr       */
+/*   Updated: 2019/04/27 19:52:39 by mleticia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ char		*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*p1;
 
-	if (!s || !len)
-		return (0);
+	if (!s || start > ft_strlen(s))
+		return (NULL);
 	if (!(p1 = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	p1 = ft_strncpy(p1, &s[start], len);
